@@ -1,0 +1,6 @@
+{
+  "parent": "idk:block/template/colored_stair_block",
+  "textures": {
+    "all": "idk:block/painted_block"
+  }
+}

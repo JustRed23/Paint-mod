@@ -7,12 +7,15 @@ import dev.JustRed23.idk.items.PaintbrushItem;
 import dev.JustRed23.idk.particle.PaintParticle;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RegisterColorHandlersEvent;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraftforge.registries.RegistryObject;
 
 @Mod.EventBusSubscriber(modid = IDK.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class IDKClient {
@@ -39,15 +42,25 @@ public class IDKClient {
             return -1;
         }, ModItems.PAINTBRUSH.get(), ModItems.EYEDROPPER.get(), ModItems.getBlockItem("paint_bucket").get());
 
-        event.register((stack, tintIndex) -> {
-            if (tintIndex == 0 && stack.hasTag() && stack.getTag().contains("paintColor"))
-                return stack.getTag().getInt("paintColor");
-            return -1;
-        }, ModItems.getBlockItem("painted_block").get());
+        for (RegistryObject<Item> item : ModItems.getPaintedBlockItems()) {
+            event.register((stack, tintIndex) -> {
+                if (tintIndex == 0 && stack.hasTag() && stack.getTag().contains("paintColor"))
+                    return stack.getTag().getInt("paintColor");
+                return -1;
+            }, item.get());
+        }
     }
 
     @SubscribeEvent
     public static void registerBlockColors(RegisterColorHandlersEvent.Block event) {
+        registerColored(event, ModBlocks.PAINT_BUCKET.get());
+
+        for (RegistryObject<Block> block : ModBlocks.getPaintedBlocks()) {
+            registerColored(event, block.get());
+        }
+    }
+
+    private static void registerColored(RegisterColorHandlersEvent.Block event, Block block) {
         event.register((state, world, pos, tintIndex) -> {
             if (world != null && pos != null && tintIndex == 0) {
                 ColoredBlockEntity blockEntity = (ColoredBlockEntity) world.getBlockEntity(pos);
@@ -55,7 +68,7 @@ public class IDKClient {
                     return blockEntity.getColor();
             }
             return -1;
-        }, ModBlocks.PAINTED_BLOCK.get(), ModBlocks.PAINT_BUCKET.get());
+        }, block);
     }
 
     @SubscribeEvent

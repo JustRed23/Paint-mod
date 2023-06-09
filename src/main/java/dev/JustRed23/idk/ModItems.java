@@ -11,26 +11,32 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Function;
 
 public final class ModItems {
 
     private static final DeferredRegister<Item> ITEMS = DeferredRegister.create(Registries.ITEM, IDK.MOD_ID);
     private static final Map<String, RegistryObject<Item>> BLOCK_ITEMS = new HashMap<>();
+    private static final List<RegistryObject<Item>> PAINTED_BLOCK_ITEMS = new ArrayList<>();
 
     static void register(IEventBus bus) {
         ITEMS.register(bus);
     }
 
-    static <T extends Block> void registerBlockItem(RegistryObject<T> item, Function<T, BlockItem> blockItem) {
-        BLOCK_ITEMS.put(item.getId().getPath(), ITEMS.register(item.getId().getPath(), () -> blockItem.apply(item.get())));
+    static <T extends Block> void registerBlockItem(RegistryObject<T> item, Function<T, BlockItem> blockItem, boolean painted) {
+        final RegistryObject<Item> registryObject = ITEMS.register(item.getId().getPath(), () -> blockItem.apply(item.get()));
+        BLOCK_ITEMS.put(item.getId().getPath(), registryObject);
+        if (painted)
+            PAINTED_BLOCK_ITEMS.add(registryObject);
     }
 
     static Map<String, RegistryObject<Item>> getBlockItems() {
         return BLOCK_ITEMS;
+    }
+
+    static List<RegistryObject<Item>> getPaintedBlockItems() {
+        return PAINTED_BLOCK_ITEMS;
     }
 
     public static Collection<RegistryObject<Item>> getAll() {

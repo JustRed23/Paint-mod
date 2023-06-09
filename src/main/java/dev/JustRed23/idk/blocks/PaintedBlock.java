@@ -1,6 +1,8 @@
 package dev.JustRed23.idk.blocks;
 
+import dev.JustRed23.idk.ModBlockEntities;
 import dev.JustRed23.idk.blocks.blockentities.PaintedBlockEntity;
+import dev.JustRed23.idk.blocks.paintedblockvariants.PaintedStairBlock;
 import dev.JustRed23.idk.items.PaintedBlockItem;
 import dev.JustRed23.idk.particle.paint.PaintParticleData;
 import net.minecraft.core.BlockPos;
@@ -16,6 +18,7 @@ import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.storage.loot.LootContext;
@@ -80,7 +83,11 @@ public class PaintedBlock extends BaseEntityBlock {
 
     @Nullable
     public BlockEntity newBlockEntity(@NotNull BlockPos pos, @NotNull BlockState state) {
-        return new PaintedBlockEntity(pos, state);
+        BlockEntityType<PaintedBlockEntity> blockEntityType = ModBlockEntities.PAINTED_BLOCK_ENTITY.get();
+        if (this instanceof PaintedStairBlock)
+            blockEntityType = ModBlockEntities.PAINTED_STAIR_BLOCK_ENTITY.get();
+
+        return new PaintedBlockEntity(blockEntityType, pos, state);
     }
 
     public @NotNull RenderShape getRenderShape(@NotNull BlockState state) {

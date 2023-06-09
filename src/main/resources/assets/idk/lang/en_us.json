@@ -1,11 +1,13 @@
 {
   "block.idk.painted_block": "Painted Block",
+  "block.idk.painted_stair_block": "Painted Stair Block",
   "block.idk.paint_bucket": "Paint Bucket",
 
   "item.idk.eyedropper": "Eye Dropper",
   "item.idk.paintbrush": "Paintbrush",
   "item.idk.paint_bucket": "Paint Bucket",
   "item.idk.painted_block": "Painted Block",
+  "item.idk.painted_stair_block": "Painted Stair Block",
 
   "tooltips.idk.color": "Current color: {0}",
   "tooltips.idk.uses": "Uses left: {0}/{1}",
