@@ -3,7 +3,7 @@ package dev.JustRed23.idk.blocks;
 import dev.JustRed23.idk.ModBlockEntities;
 import dev.JustRed23.idk.blocks.blockentities.PaintedBlockEntity;
 import dev.JustRed23.idk.blocks.paintedblockvariants.PaintedSlab;
-import dev.JustRed23.idk.blocks.paintedblockvariants.PaintedStairBlock;
+import dev.JustRed23.idk.blocks.paintedblockvariants.PaintedStair;
 import dev.JustRed23.idk.items.PaintedBlockItem;
 import dev.JustRed23.idk.particle.paint.PaintParticleData;
 import net.minecraft.core.BlockPos;
@@ -85,8 +85,8 @@ public class PaintedBlock extends BaseEntityBlock {
     @Nullable
     public BlockEntity newBlockEntity(@NotNull BlockPos pos, @NotNull BlockState state) {
         BlockEntityType<PaintedBlockEntity> blockEntityType = ModBlockEntities.PAINTED_BLOCK_ENTITY.get();
-        if (this instanceof PaintedStairBlock)
-            blockEntityType = ModBlockEntities.PAINTED_STAIR_BLOCK_ENTITY.get();
+        if (this instanceof PaintedStair)
+            blockEntityType = ModBlockEntities.PAINTED_STAIR_ENTITY.get();
         else if (this instanceof PaintedSlab)
             blockEntityType = ModBlockEntities.PAINTED_SLAB_ENTITY.get();
 

@@ -1,5 +1,5 @@
 {
-  "parent": "idk:block/template/colored_stair_block_inner",
+  "parent": "idk:block/template/colored_stairs_outer",
   "textures": {
     "all": "idk:block/painted_block"
   }

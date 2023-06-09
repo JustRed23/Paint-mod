@@ -26,7 +26,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import java.util.stream.IntStream;
 
 //Copied from StairBlock
-public class PaintedStairBlock extends PaintedBlock implements SimpleWaterloggedBlock {
+public class PaintedStair extends PaintedBlock implements SimpleWaterloggedBlock {
 
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
     public static final EnumProperty<Half> HALF = BlockStateProperties.HALF;
@@ -76,7 +76,7 @@ public class PaintedStairBlock extends PaintedBlock implements SimpleWaterlogged
         return voxelshape;
     }
 
-    public PaintedStairBlock() {
+    public PaintedStair() {
         super();
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(HALF, Half.BOTTOM).setValue(SHAPE, StairsShape.STRAIGHT).setValue(WATERLOGGED, false));
         this.baseState = ModBlocks.PAINTED_BLOCK.get().defaultBlockState();
@@ -162,7 +162,7 @@ public class PaintedStairBlock extends PaintedBlock implements SimpleWaterlogged
     }
 
     public static boolean isStairs(BlockState p_56981_) {
-        return p_56981_.getBlock() instanceof PaintedStairBlock ||
+        return p_56981_.getBlock() instanceof PaintedStair ||
                 p_56981_.getBlock() instanceof StairBlock;
     }
 

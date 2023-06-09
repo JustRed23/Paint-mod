@@ -1,6 +1,6 @@
 {
   "block.idk.painted_block": "Painted Block",
-  "block.idk.painted_stair_block": "Painted Stair Block",
+  "block.idk.painted_stairs": "Painted Stairs",
   "block.idk.painted_slab": "Painted Slab",
   "block.idk.paint_bucket": "Paint Bucket",
 
@@ -8,7 +8,7 @@
   "item.idk.paintbrush": "Paintbrush",
   "item.idk.paint_bucket": "Paint Bucket",
   "item.idk.painted_block": "Painted Block",
-  "item.idk.painted_stair_block": "Painted Stair Block",
+  "item.idk.painted_stairs": "Painted Stairs",
   "item.idk.painted_slab": "Painted Slab",
 
   "tooltips.idk.color": "Current color: {0}",
