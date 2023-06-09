@@ -105,7 +105,6 @@ public class PaintbrushItem extends PaintControlsItem implements CreativeGetterI
                 int color = getColor(stack);
                 if (canUse(stack) && blockEntity != null && blockEntity.getColor() != color) {
                     blockEntity.setColor(color);
-                    //FIXME: cannot call sound event on server side
                     level.playLocalSound(pos, blockEntity.getPaintSound(), SoundSource.BLOCKS, 0.2F, 1.0F, false);
                     deplete(stack);
                 }
