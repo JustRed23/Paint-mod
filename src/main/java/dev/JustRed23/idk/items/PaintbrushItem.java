@@ -14,12 +14,10 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
@@ -113,58 +111,6 @@ public class PaintbrushItem extends PaintControlsItem implements CreativeGetterI
 
         return InteractionResultHolder.pass(stack);
     }
-
-    /*public @NotNull InteractionResult useOn(UseOnContext context) {
-        if (context.getLevel().isClientSide)
-            return InteractionResult.SUCCESS;
-
-        BlockState clicked = context.getLevel().getBlockState(context.getClickedPos());
-        ItemStack stack = context.getItemInHand();
-
-        if (stack.getItem() instanceof PaintbrushItem) {
-            if (clicked.getBlock() instanceof PaintBucketBlock) {
-                PaintBucketBlockEntity blockEntity = (PaintBucketBlockEntity) context.getLevel().getBlockEntity(context.getClickedPos());
-                if (blockEntity != null) {
-                    int usesNeeded = getMaxUses(stack) - getUses(stack);
-                    if (usesNeeded > 0 && blockEntity.getColor() == getColor(stack)) {
-                        if (blockEntity.getUses() >= usesNeeded) {
-                            refillCompletely(stack, blockEntity, usesNeeded);
-                            return InteractionResult.SUCCESS;
-                        } else if (blockEntity.getUses() > 0) {
-                            if (blockEntity.getUses() > usesNeeded) refillPartially(stack, blockEntity, usesNeeded);
-                            else refillPartially(stack, blockEntity);
-
-                            return InteractionResult.SUCCESS;
-                        } else return InteractionResult.FAIL;
-                    } else if (!canUse(stack)) {
-                        if (blockEntity.getUses() >= usesNeeded) {
-                            refillCompletely(stack, blockEntity, usesNeeded);
-                            setColor(stack, blockEntity.getColor());
-                            return InteractionResult.SUCCESS;
-                        } else if (blockEntity.getUses() > 0) {
-                            if (blockEntity.getUses() > usesNeeded) refillPartially(stack, blockEntity, usesNeeded);
-                            else refillPartially(stack, blockEntity);
-
-                            setColor(stack, blockEntity.getColor());
-                            return InteractionResult.SUCCESS;
-                        } else return InteractionResult.FAIL;
-                    }
-                }
-            }
-
-            if (clicked.getBlock() instanceof PaintedBlock) {
-                PaintedBlockEntity blockEntity = (PaintedBlockEntity) context.getLevel().getBlockEntity(context.getClickedPos());
-                int color = getColor(stack);
-                if (canUse(stack) && blockEntity != null && blockEntity.getColor() != color) {
-                    blockEntity.setColor(color);
-                    //context.getPlayer().playSound(blockEntity.getPaintSound()); //FIXME: Sound doesn't play on server side
-                    deplete(stack);
-                }
-            }
-        }
-
-        return InteractionResult.PASS;
-    }*/
 
     private void refillCompletely(ItemStack stack, PaintBucketBlockEntity blockEntity, int usesNeeded) {
         refill(stack);
