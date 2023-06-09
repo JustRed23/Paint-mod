@@ -68,7 +68,8 @@ public class PaintBucketDyeRecipe extends CustomRecipe {
         }
 
         if (!bucket.isEmpty() && !dyes.isEmpty())
-            return PaintBucketItem.dyeBucket(bucket, dyes);
+            if (((PaintBucketItem) bucket.getItem()).canUse(bucket))
+                return PaintBucketItem.dyeBucket(bucket, dyes);
 
         return ItemStack.EMPTY;
     }

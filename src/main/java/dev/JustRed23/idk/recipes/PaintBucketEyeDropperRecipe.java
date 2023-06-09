@@ -47,7 +47,7 @@ public class PaintBucketEyeDropperRecipe extends CustomRecipe {
 
         PaintBucketItem bucketItem = (PaintBucketItem) bucket.getItem();
         EyeDropperItem eyeDropperItem = (EyeDropperItem) eyeDropper.getItem();
-        return bucketItem.getColor(bucket) != eyeDropperItem.getColor(eyeDropper);
+        return bucketItem.canUse(bucket) && (bucketItem.getColor(bucket) != eyeDropperItem.getColor(eyeDropper));
     }
 
     public @NotNull NonNullList<ItemStack> getRemainingItems(CraftingContainer container) {
