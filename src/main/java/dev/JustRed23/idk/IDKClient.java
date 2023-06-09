@@ -1,6 +1,7 @@
 package dev.JustRed23.idk;
 
 import dev.JustRed23.idk.blocks.blockentities.template.ColoredBlockEntity;
+import dev.JustRed23.idk.items.EyeDropperItem;
 import dev.JustRed23.idk.items.PaintBucketItem;
 import dev.JustRed23.idk.items.PaintbrushItem;
 import dev.JustRed23.idk.particle.PaintParticle;
@@ -23,6 +24,9 @@ public class IDKClient {
         final PaintbrushItem paintbrush = (PaintbrushItem) ModItems.PAINTBRUSH.get();
         ItemProperties.register(paintbrush, EMPTY, (stack, world, entity, seed) -> paintbrush.canUse(stack) ? 0.0F : 1.0F);
 
+        final EyeDropperItem eyeDropper = (EyeDropperItem) ModItems.EYEDROPPER.get();
+        ItemProperties.register(eyeDropper, EMPTY, (stack, world, entity, seed) -> eyeDropper.hasColor(stack) ? 0.0F : 1.0F);
+
         final PaintBucketItem paintBucket = (PaintBucketItem) ModItems.getBlockItem("paint_bucket").get();
         ItemProperties.register(paintBucket, EMPTY, (stack, world, entity, seed) -> paintBucket.canUse(stack) ? 0.0F : 1.0F);
     }
@@ -33,7 +37,7 @@ public class IDKClient {
             if (tintIndex == 1 && stack.hasTag() && stack.getTag().contains("paintColor"))
                 return stack.getTag().getInt("paintColor");
             return -1;
-        }, ModItems.PAINTBRUSH.get(), ModItems.getBlockItem("paint_bucket").get());
+        }, ModItems.PAINTBRUSH.get(), ModItems.EYEDROPPER.get(), ModItems.getBlockItem("paint_bucket").get());
 
         event.register((stack, tintIndex) -> {
             if (tintIndex == 0 && stack.hasTag() && stack.getTag().contains("paintColor"))

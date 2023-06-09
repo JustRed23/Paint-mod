@@ -1,12 +1,12 @@
 package dev.JustRed23.idk.recipes;
 
-import com.google.common.collect.Lists;
 import dev.JustRed23.idk.ModRecipeSerializers;
+import dev.JustRed23.idk.items.EyeDropperItem;
 import dev.JustRed23.idk.items.PaintBucketItem;
+import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.inventory.CraftingContainer;
-import net.minecraft.world.item.DyeItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.CraftingBookCategory;
 import net.minecraft.world.item.crafting.CustomRecipe;
@@ -14,17 +14,15 @@ import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.List;
+public class PaintBucketEyeDropperRecipe extends CustomRecipe {
 
-public class PaintBucketDyeRecipe extends CustomRecipe {
-
-    public PaintBucketDyeRecipe(ResourceLocation loc, CraftingBookCategory category) {
+    public PaintBucketEyeDropperRecipe(ResourceLocation loc, CraftingBookCategory category) {
         super(loc, category);
     }
 
     public boolean matches(@NotNull CraftingContainer container, @NotNull Level level) {
         ItemStack bucket = ItemStack.EMPTY;
-        List<ItemStack> dyes = Lists.newArrayList();
+        ItemStack eyeDropper = ItemStack.EMPTY;
 
         for (int i = 0; i < container.getContainerSize(); ++i) {
             ItemStack itemstack = container.getItem(i);
@@ -34,21 +32,41 @@ public class PaintBucketDyeRecipe extends CustomRecipe {
                         return false;
 
                     bucket = itemstack;
-                } else {
-                    if (!(itemstack.getItem() instanceof DyeItem))
+                } else if (itemstack.getItem() instanceof EyeDropperItem eyeDropperItem) {
+                    if (!eyeDropper.isEmpty())
                         return false;
 
-                    dyes.add(itemstack);
+                    if (eyeDropperItem.hasColor(itemstack))
+                        eyeDropper = itemstack;
                 }
             }
         }
 
-        return !bucket.isEmpty() && !dyes.isEmpty();
+        if (bucket.isEmpty() || eyeDropper.isEmpty())
+            return false;
+
+        PaintBucketItem bucketItem = (PaintBucketItem) bucket.getItem();
+        EyeDropperItem eyeDropperItem = (EyeDropperItem) eyeDropper.getItem();
+        return bucketItem.getColor(bucket) != eyeDropperItem.getColor(eyeDropper);
+    }
+
+    public @NotNull NonNullList<ItemStack> getRemainingItems(CraftingContainer container) {
+        NonNullList<ItemStack> nonnulllist = NonNullList.withSize(container.getContainerSize(), ItemStack.EMPTY);
+
+        for (int i = 0; i < nonnulllist.size(); ++i) {
+            ItemStack itemstack = container.getItem(i);
+            if (itemstack.getItem().hasCraftingRemainingItem())
+                nonnulllist.set(i, new ItemStack(itemstack.getItem().getCraftingRemainingItem()));
+            else if (itemstack.getItem() instanceof EyeDropperItem)
+                nonnulllist.set(i, itemstack.copy());
+        }
+
+        return nonnulllist;
     }
 
     public @NotNull ItemStack assemble(@NotNull CraftingContainer container, @NotNull RegistryAccess access) {
         ItemStack bucket = ItemStack.EMPTY;
-        List<ItemStack> dyes = Lists.newArrayList();
+        ItemStack eyeDropper = ItemStack.EMPTY;
 
         for (int i = 0; i < container.getContainerSize(); ++i) {
             ItemStack itemstack = container.getItem(i);
@@ -58,19 +76,19 @@ public class PaintBucketDyeRecipe extends CustomRecipe {
                         return ItemStack.EMPTY;
 
                     bucket = itemstack;
-                } else {
-                    if (!(itemstack.getItem() instanceof DyeItem))
+                } else if (itemstack.getItem() instanceof EyeDropperItem) {
+                    if (!eyeDropper.isEmpty())
                         return ItemStack.EMPTY;
 
-                    dyes.add(itemstack);
+                    eyeDropper = itemstack;
                 }
             }
         }
 
-        if (!bucket.isEmpty() && !dyes.isEmpty())
-            return PaintBucketItem.dyeBucket(bucket, dyes);
-
-        return ItemStack.EMPTY;
+        ItemStack result = bucket.copy();
+        result.setCount(1);
+        result.getOrCreateTag().putInt("paintColor", eyeDropper.getOrCreateTag().getInt("paintColor"));
+        return result;
     }
 
     public boolean canCraftInDimensions(int gridWidth, int gridHeight) {
@@ -78,6 +96,6 @@ public class PaintBucketDyeRecipe extends CustomRecipe {
     }
 
     public @NotNull RecipeSerializer<?> getSerializer() {
-        return ModRecipeSerializers.PAINT_BUCKET_DYE.get();
+        return ModRecipeSerializers.PAINT_BUCKET_EYEDROPPER.get();
     }
 }

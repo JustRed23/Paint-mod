@@ -64,10 +64,10 @@ public class PaintBucketBlock extends BaseEntityBlock {
     }
 
     public void setPlacedBy(@NotNull Level level, @NotNull BlockPos pos, @NotNull BlockState state, @Nullable LivingEntity entity, ItemStack stack) {
-        if (stack.getItem() instanceof PaintBucketItem) {
+        if (stack.getItem() instanceof PaintBucketItem paintBucketItem) {
             PaintBucketBlockEntity blockEntity = (PaintBucketBlockEntity) level.getBlockEntity(pos);
             if (stack.hasTag() && stack.getTag().contains("paintColor"))
-                blockEntity.setColor(stack.getTag().getInt("paintColor"));
+                blockEntity.setColor(paintBucketItem.getColor(stack));
 
             if (stack.hasTag() && stack.getTag().contains("uses"))
                 blockEntity.setUses(stack.getTag().getInt("uses"));

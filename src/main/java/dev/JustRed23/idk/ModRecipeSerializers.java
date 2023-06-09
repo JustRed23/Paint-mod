@@ -1,6 +1,7 @@
 package dev.JustRed23.idk;
 
 import dev.JustRed23.idk.recipes.PaintBucketDyeRecipe;
+import dev.JustRed23.idk.recipes.PaintBucketEyeDropperRecipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.SimpleCraftingRecipeSerializer;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -18,4 +19,5 @@ public final class ModRecipeSerializers {
 
     //RECIPE SERIALIZERS
     public static final RegistryObject<RecipeSerializer<PaintBucketDyeRecipe>> PAINT_BUCKET_DYE = RECIPE_SERIALIZERS.register("paint_bucket_dye", () -> new SimpleCraftingRecipeSerializer<>(PaintBucketDyeRecipe::new));
+    public static final RegistryObject<RecipeSerializer<PaintBucketEyeDropperRecipe>> PAINT_BUCKET_EYEDROPPER = RECIPE_SERIALIZERS.register("paint_bucket_eyedropper", () -> new SimpleCraftingRecipeSerializer<>(PaintBucketEyeDropperRecipe::new));
 }

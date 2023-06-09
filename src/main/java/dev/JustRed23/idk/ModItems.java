@@ -1,5 +1,6 @@
 package dev.JustRed23.idk;
 
+import dev.JustRed23.idk.items.EyeDropperItem;
 import dev.JustRed23.idk.items.PaintbrushItem;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.BlockItem;
@@ -42,4 +43,5 @@ public final class ModItems {
 
     //ITEMS
     public static final RegistryObject<Item> PAINTBRUSH = ITEMS.register("paintbrush", PaintbrushItem::new);
+    public static final RegistryObject<Item> EYEDROPPER = ITEMS.register("eyedropper", EyeDropperItem::new);
 }
