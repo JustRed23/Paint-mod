@@ -20,4 +20,12 @@ public final class RecipeUtils {
         }
         return true;
     }
+
+    public static boolean allAir(ItemStack... items) {
+        for (ItemStack item : items)
+            if (!item.isEmpty())
+                return false;
+
+        return true;
+    }
 }

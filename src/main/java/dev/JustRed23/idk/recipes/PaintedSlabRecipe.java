@@ -3,7 +3,6 @@ package dev.JustRed23.idk.recipes;
 import dev.JustRed23.idk.ModItems;
 import dev.JustRed23.idk.ModRecipeSerializers;
 import dev.JustRed23.idk.items.PaintedBlockItem;
-import dev.JustRed23.idk.utils.RecipeUtils;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.inventory.CraftingContainer;
@@ -13,6 +12,9 @@ import net.minecraft.world.item.crafting.CustomRecipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
+
+import static dev.JustRed23.idk.utils.RecipeUtils.allColorsMatch;
+import static dev.JustRed23.idk.utils.RecipeUtils.allAir;
 
 public class PaintedSlabRecipe extends CustomRecipe {
 
@@ -31,14 +33,14 @@ public class PaintedSlabRecipe extends CustomRecipe {
         ItemStack slot8 = container.getItem(7);
         ItemStack slot9 = container.getItem(8);
 
-        if (isSlab(slot1, slot2, slot3) && restAir(slot4, slot5, slot6, slot7, slot8, slot9))
-            return RecipeUtils.allColorsMatch(slot1, slot2, slot3);
+        if (isSlab(slot1, slot2, slot3) && allAir(slot4, slot5, slot6, slot7, slot8, slot9))
+            return allColorsMatch(slot1, slot2, slot3);
 
-        if (isSlab(slot4, slot5, slot6) && restAir(slot1, slot2, slot3, slot7, slot8, slot9))
-            return RecipeUtils.allColorsMatch(slot4, slot5, slot6);
+        if (isSlab(slot4, slot5, slot6) && allAir(slot1, slot2, slot3, slot7, slot8, slot9))
+            return allColorsMatch(slot4, slot5, slot6);
 
-        if (isSlab(slot7, slot8, slot9) && restAir(slot1, slot2, slot3, slot4, slot5, slot6))
-            return RecipeUtils.allColorsMatch(slot7, slot8, slot9);
+        if (isSlab(slot7, slot8, slot9) && allAir(slot1, slot2, slot3, slot4, slot5, slot6))
+            return allColorsMatch(slot7, slot8, slot9);
 
         return false;
     }
@@ -47,14 +49,6 @@ public class PaintedSlabRecipe extends CustomRecipe {
         if (item1.getItem() instanceof PaintedBlockItem && item2.getItem() instanceof PaintedBlockItem && item3.getItem() instanceof PaintedBlockItem)
             return true;
         return false;
-    }
-
-    private boolean restAir(ItemStack... items) {
-        for (ItemStack item : items)
-            if (!item.isEmpty())
-                return false;
-
-        return true;
     }
 
     public @NotNull ItemStack assemble(@NotNull CraftingContainer container, @NotNull RegistryAccess access) {

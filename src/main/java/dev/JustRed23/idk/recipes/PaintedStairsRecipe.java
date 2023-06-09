@@ -3,7 +3,6 @@ package dev.JustRed23.idk.recipes;
 import dev.JustRed23.idk.ModItems;
 import dev.JustRed23.idk.ModRecipeSerializers;
 import dev.JustRed23.idk.items.PaintedBlockItem;
-import dev.JustRed23.idk.utils.RecipeUtils;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.inventory.CraftingContainer;
@@ -13,6 +12,9 @@ import net.minecraft.world.item.crafting.CustomRecipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
+
+import static dev.JustRed23.idk.utils.RecipeUtils.allAir;
+import static dev.JustRed23.idk.utils.RecipeUtils.allColorsMatch;
 
 public class PaintedStairsRecipe extends CustomRecipe {
 
@@ -31,14 +33,11 @@ public class PaintedStairsRecipe extends CustomRecipe {
         final ItemStack slot8 = container.getItem(7);
         final ItemStack slot9 = container.getItem(8);
 
-        return isPaintedBlock(slot1)  && isAir(slot2)          && isAir(slot3) &&
-                isPaintedBlock(slot4) && isPaintedBlock(slot5) && isAir(slot6) &&
+        return isPaintedBlock(slot1) &&
+                isPaintedBlock(slot4) && isPaintedBlock(slot5) &&
                 isPaintedBlock(slot7) && isPaintedBlock(slot8) && isPaintedBlock(slot9) &&
-                RecipeUtils.allColorsMatch(slot1, slot4, slot5, slot7, slot8, slot9);
-    }
-
-    private boolean isAir(ItemStack stack) {
-        return stack.isEmpty();
+                allAir(slot2, slot3, slot6) &&
+                allColorsMatch(slot1, slot4, slot5, slot7, slot8, slot9);
     }
 
     private boolean isPaintedBlock(ItemStack stack) {
