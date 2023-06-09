@@ -1,7 +1,5 @@
 package dev.JustRed23.idk;
 
-import dev.JustRed23.idk.items.PaintbrushItem;
-import dev.JustRed23.idk.items.PaintBucketItem;
 import dev.JustRed23.idk.items.template.CreativeGetterItem;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;

@@ -1,13 +1,12 @@
 package dev.JustRed23.idk.particle;
 
-import dev.JustRed23.idk.ModBlocks;
-import dev.JustRed23.idk.blocks.blockentities.PaintedBlockEntity;
 import dev.JustRed23.idk.particle.paint.PaintParticleData;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
-import net.minecraft.client.particle.*;
+import net.minecraft.client.particle.ParticleProvider;
+import net.minecraft.client.particle.ParticleRenderType;
+import net.minecraft.client.particle.TextureSheetParticle;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.api.distmarker.Dist;

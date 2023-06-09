@@ -4,7 +4,6 @@ import dev.JustRed23.idk.blocks.blockentities.template.ColoredBlockEntity;
 import dev.JustRed23.idk.items.PaintBucketItem;
 import dev.JustRed23.idk.items.PaintbrushItem;
 import dev.JustRed23.idk.particle.PaintParticle;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
