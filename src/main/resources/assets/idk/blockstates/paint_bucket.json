@@ -1,0 +1,88 @@
+{
+  "multipart": [
+    {
+      "apply": { "model": "idk:block/paint_bucket/paint/paint_level_10" },
+      "when": { "empty": "false", "level": "10" }
+    },
+    {
+      "apply": { "model": "idk:block/paint_bucket/paint/paint_level_9" },
+      "when": { "empty": "false", "level": "9" }
+    },
+    {
+      "apply": { "model": "idk:block/paint_bucket/paint/paint_level_8" },
+      "when": { "empty": "false", "level": "8" }
+    },
+    {
+      "apply": { "model": "idk:block/paint_bucket/paint/paint_level_7" },
+      "when": { "empty": "false", "level": "7" }
+    },
+    {
+      "apply": { "model": "idk:block/paint_bucket/paint/paint_level_6" },
+      "when": { "empty": "false", "level": "6" }
+    },
+    {
+      "apply": { "model": "idk:block/paint_bucket/paint/paint_level_5" },
+      "when": { "empty": "false", "level": "5" }
+    },
+    {
+      "apply": { "model": "idk:block/paint_bucket/paint/paint_level_4" },
+      "when": { "empty": "false", "level": "4" }
+    },
+    {
+      "apply": { "model": "idk:block/paint_bucket/paint/paint_level_3" },
+      "when": { "empty": "false", "level": "3" }
+    },
+    {
+      "apply": { "model": "idk:block/paint_bucket/paint/paint_level_2" },
+      "when": { "empty": "false", "level": "2" }
+    },
+    {
+      "apply": { "model": "idk:block/paint_bucket/paint/paint_level_1" },
+      "when": { "empty": "false", "level": "1" }
+    },
+
+
+
+    {
+      "apply": { "model": "idk:block/paint_bucket/states/empty" },
+      "when": { "empty": "true", "facing": "north" }
+    },
+    {
+      "apply": { "model": "idk:block/paint_bucket/states/full" },
+      "when": { "empty": "false", "facing": "north" }
+    },
+
+
+
+    {
+      "apply": { "model": "idk:block/paint_bucket/states/empty", "y": 90 },
+      "when": { "empty": "true", "facing": "east" }
+    },
+    {
+      "apply": { "model": "idk:block/paint_bucket/states/full", "y": 90 },
+      "when": { "empty": "false", "facing": "east" }
+    },
+
+
+
+    {
+      "apply": { "model": "idk:block/paint_bucket/states/empty", "y": 180 },
+      "when": { "empty": "true", "facing": "south" }
+    },
+    {
+      "apply": { "model": "idk:block/paint_bucket/states/full", "y": 180 },
+      "when": { "empty": "false", "facing": "south" }
+    },
+
+
+
+    {
+      "apply": { "model": "idk:block/paint_bucket/states/empty", "y": 270 },
+      "when": { "empty": "true", "facing": "west" }
+    },
+    {
+      "apply": { "model": "idk:block/paint_bucket/states/full", "y": 270 },
+      "when": { "empty": "false", "facing": "west" }
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "idk:item/paintbrush/base",
+    "layer1": "idk:item/paintbrush/overlay"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "idk:empty": 1
+      },
+      "model": "idk:item/empty_paintbrush"
+    }
+  ]
+}

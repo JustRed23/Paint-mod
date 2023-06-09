@@ -1,0 +1,17 @@
+{
+  "parent": "idk:block/paint_bucket/states/full",
+  "elements": [
+    {
+      "from": [5, 1, 5],
+      "to": [11, 8, 11],
+      "faces": {
+        "north": {"uv": [10, 10, 11, 11], "texture": "#1", "tintindex": 0},
+        "east": {"uv": [10, 10, 11, 11], "texture": "#1", "tintindex": 0},
+        "south": {"uv": [10, 10, 11, 11], "texture": "#1", "tintindex": 0},
+        "west": {"uv": [10, 10, 11, 11], "texture": "#1", "tintindex": 0},
+        "up": {"uv": [10, 10, 11, 11], "texture": "#1", "tintindex": 0},
+        "down": {"uv": [10, 10, 11, 11], "texture": "#1", "tintindex": 0}
+      }
+    }
+  ]
+}
