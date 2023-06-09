@@ -2,6 +2,7 @@ package dev.JustRed23.idk.blocks;
 
 import dev.JustRed23.idk.ModBlockEntities;
 import dev.JustRed23.idk.blocks.blockentities.PaintedBlockEntity;
+import dev.JustRed23.idk.blocks.paintedblockvariants.PaintedSlab;
 import dev.JustRed23.idk.blocks.paintedblockvariants.PaintedStairBlock;
 import dev.JustRed23.idk.items.PaintedBlockItem;
 import dev.JustRed23.idk.particle.paint.PaintParticleData;
@@ -86,6 +87,8 @@ public class PaintedBlock extends BaseEntityBlock {
         BlockEntityType<PaintedBlockEntity> blockEntityType = ModBlockEntities.PAINTED_BLOCK_ENTITY.get();
         if (this instanceof PaintedStairBlock)
             blockEntityType = ModBlockEntities.PAINTED_STAIR_BLOCK_ENTITY.get();
+        else if (this instanceof PaintedSlab)
+            blockEntityType = ModBlockEntities.PAINTED_SLAB_ENTITY.get();
 
         return new PaintedBlockEntity(blockEntityType, pos, state);
     }

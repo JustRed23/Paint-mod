@@ -1,0 +1,6 @@
+{
+  "parent": "idk:block/template/colored_slab_top",
+  "textures": {
+    "all": "idk:block/painted_block"
+  }
+}

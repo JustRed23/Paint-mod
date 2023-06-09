@@ -31,6 +31,8 @@ public final class ModBlockEntities {
             BLOCK_ENTITIES.register("painted_block", () -> BlockEntityType.Builder.of((pos, state) -> new PaintedBlockEntity(ModBlockEntities.PAINTED_BLOCK_ENTITY.get(), pos, state), ModBlocks.PAINTED_BLOCK.get()).build(null));
     public static final RegistryObject<BlockEntityType<PaintedBlockEntity>> PAINTED_STAIR_BLOCK_ENTITY =
             BLOCK_ENTITIES.register("painted_stair_block", () -> BlockEntityType.Builder.of((pos, state) -> new PaintedBlockEntity(ModBlockEntities.PAINTED_STAIR_BLOCK_ENTITY.get(), pos, state), ModBlocks.PAINTED_STAIR_BLOCK.get()).build(null));
+    public static final RegistryObject<BlockEntityType<PaintedBlockEntity>> PAINTED_SLAB_ENTITY =
+            BLOCK_ENTITIES.register("painted_slab", () -> BlockEntityType.Builder.of((pos, state) -> new PaintedBlockEntity(ModBlockEntities.PAINTED_SLAB_ENTITY.get(), pos, state), ModBlocks.PAINTED_SLAB.get()).build(null));
     public static final RegistryObject<BlockEntityType<PaintBucketBlockEntity>> PAINT_BUCKET_BLOCK_ENTITY =
             BLOCK_ENTITIES.register("paint_bucket", () -> BlockEntityType.Builder.of(PaintBucketBlockEntity::new, ModBlocks.PAINT_BUCKET.get()).build(null));
 }
