@@ -37,7 +37,7 @@ public class PaintBucketBlock extends BaseEntityBlock {
 
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
     public static final BooleanProperty EMPTY = BooleanProperty.create("empty");
-    public static final IntegerProperty LEVEL = IntegerProperty.create("level", 0, 10);
+    public static final IntegerProperty LEVEL = IntegerProperty.create("level", 1, 10);
 
     private static final VoxelShape SHAPE = Stream.of(
             //Bucket shape

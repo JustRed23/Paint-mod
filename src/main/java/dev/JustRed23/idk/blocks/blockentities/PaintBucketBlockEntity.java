@@ -37,14 +37,16 @@ public class PaintBucketBlockEntity extends ColoredBlockEntity {
     public void setChanged() {
         super.setChanged();
 
-        if (tag.contains("uses")) {
+        if (level != null && tag.contains("uses")) {
             if (getUses() <= 0)
                 level.setBlockAndUpdate(getBlockPos(), level.getBlockState(getBlockPos()).setValue(PaintBucketBlock.EMPTY, true));
-            else if (getUses() > 0)
-                level.setBlockAndUpdate(getBlockPos(), level.getBlockState(getBlockPos())
-                        .setValue(PaintBucketBlock.EMPTY, false)
-                        .setValue(PaintBucketBlock.LEVEL, getUses() / 10)
-                );
+            else if (getUses() > 0) {
+                if (level.getBlockState(getBlockPos()).getBlock() instanceof PaintBucketBlock) //for some reason the block returns void_air on initial load
+                    level.setBlockAndUpdate(getBlockPos(), level.getBlockState(getBlockPos())
+                            .setValue(PaintBucketBlock.EMPTY, false)
+                            .setValue(PaintBucketBlock.LEVEL, getUses() / 10)
+                    );
+            }
         }
     }
 
