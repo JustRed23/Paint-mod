@@ -43,6 +43,10 @@ public final class ModItems {
         return ITEMS.getEntries();
     }
 
+    public static @Nullable RegistryObject<Item> get(String name) {
+        return ITEMS.getEntries().stream().filter(item -> item.getId().getPath().equals(name)).findFirst().orElse(null);
+    }
+
     static @Nullable RegistryObject<Item> getBlockItem(String name) {
         return BLOCK_ITEMS.get(name);
     }

@@ -18,5 +18,7 @@ public class IDKRecipesProvider extends RecipeProvider {
     protected void buildRecipes(@NotNull Consumer<FinishedRecipe> consumer) {
         SpecialRecipeBuilder.special(ModRecipeSerializers.PAINT_BUCKET_DYE.get()).save(consumer, "idk:paint_bucket_dye");
         SpecialRecipeBuilder.special(ModRecipeSerializers.PAINT_BUCKET_EYEDROPPER.get()).save(consumer, "idk:paint_bucket_eyedropper");
+        SpecialRecipeBuilder.special(ModRecipeSerializers.PAINTED_SLAB.get()).save(consumer, "idk:painted_slab");
+        SpecialRecipeBuilder.special(ModRecipeSerializers.PAINTED_STAIRS.get()).save(consumer, "idk:painted_stairs");
     }
 }

@@ -19,10 +19,14 @@ public class PaintedBlockItem extends BlockItem implements CreativeGetterItem {
         super(block, new Properties());
     }
 
-    public @NotNull ItemStack getCreativeInstance() {
+    public @NotNull ItemStack getDefaultInstance() {
         ItemStack stack = new ItemStack(this);
         stack.getOrCreateTag().putInt("paintColor", 0xFFFFFF);
         return stack;
+    }
+
+    public @NotNull ItemStack getCreativeInstance() {
+        return getDefaultInstance();
     }
 
     public void appendHoverText(@NotNull ItemStack stack, Level level, @NotNull List<Component> components, @NotNull TooltipFlag flag) {
