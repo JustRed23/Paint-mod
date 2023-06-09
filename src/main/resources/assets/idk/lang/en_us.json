@@ -2,26 +2,13 @@
   "block.idk.painted_block": "Painted Block",
   "block.idk.paint_bucket": "Paint Bucket",
 
-
-
+  "item.idk.eye_dropper": "Eye Dropper",
   "item.idk.paintbrush": "Paintbrush",
-  "item.idk.paintbrush.tooltip.color": "Current color: {0}",
-  "item.idk.paintbrush.tooltip.uses": "Uses left: {0}/{1}",
-
-  "item.idk.painted_block": "Painted Block",
-  "item.idk.painted_block.tooltip.color": "Current color: {0}",
-
   "item.idk.paint_bucket": "Paint Bucket",
-  "item.idk.paint_bucket.tooltip.color": "Current color: {0}",
-  "item.idk.paint_bucket.tooltip.uses": "Uses left: {0}/{1}",
+  "item.idk.painted_block": "Painted Block",
 
+  "tooltips.idk.color": "Current color: {0}",
+  "tooltips.idk.uses": "Uses left: {0}/{1}",
 
-
-  "message.idk.painted_block.copied_paint.brush": "Copied paint from brush.",
-  "message.idk.paintbrush.no_uses": "No uses left.",
-
-
-
-  "tabs.main.title": "Main",
-  "tabs.paint.title": "Paint"
+  "tabs.main.title": "Main"
 }

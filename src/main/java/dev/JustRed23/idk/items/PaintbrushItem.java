@@ -49,9 +49,9 @@ public class PaintbrushItem extends PaintControlsItem implements CreativeGetterI
     }
 
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
-        components.add(Component.translatable("item.idk.paintbrush.tooltip.uses", stack.getOrCreateTag().getInt("uses"), maxUsages).withStyle(ChatFormatting.GRAY));
+        components.add(Component.translatable("tooltips.idk.uses", stack.getOrCreateTag().getInt("uses"), maxUsages).withStyle(ChatFormatting.GRAY));
         if (stack.hasTag() && stack.getTag().contains("paintColor"))
-            components.add(Component.translatable("item.idk.paintbrush.tooltip.color", ColorUtils.rgbToHex(stack.getOrCreateTag().getInt("paintColor")))
+            components.add(Component.translatable("tooltips.idk.color", ColorUtils.rgbToHex(stack.getOrCreateTag().getInt("paintColor")))
                     .withStyle(ChatFormatting.GRAY));
     }
 

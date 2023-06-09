@@ -27,7 +27,7 @@ public class PaintedBlockItem extends BlockItem implements CreativeGetterItem {
 
     public void appendHoverText(@NotNull ItemStack stack, Level level, @NotNull List<Component> components, @NotNull TooltipFlag flag) {
         if (stack.hasTag() && stack.getTag().contains("paintColor"))
-            components.add(Component.translatable("item.idk.painted_block.tooltip.color", ColorUtils.rgbToHex(stack.getOrCreateTag().getInt("paintColor")))
+            components.add(Component.translatable("tooltips.idk.color", ColorUtils.rgbToHex(stack.getOrCreateTag().getInt("paintColor")))
                     .withStyle(ChatFormatting.GRAY));
     }
 }
