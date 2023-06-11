@@ -44,8 +44,12 @@ public class PaintedBlock extends BaseEntityBlock {
         }
     }
 
+    public int getCount(BlockState state) {
+        return 1;
+    }
+
     public List<ItemStack> getDrops(BlockState state, LootContext.Builder builder) {
-        ItemStack stack = new ItemStack(this);
+        ItemStack stack = new ItemStack(this, getCount(state));
         PaintedBlockEntity blockEntity = ((PaintedBlockEntity) builder.getOptionalParameter(LootContextParams.BLOCK_ENTITY));
         if (blockEntity != null)
             stack.getOrCreateTag().putInt("paintColor", blockEntity.getColor());

@@ -1,6 +1,7 @@
 package dev.JustRed23.idk.blocks.paintedblockvariants;
 
 import dev.JustRed23.idk.blocks.PaintedBlock;
+import dev.JustRed23.idk.blocks.blockentities.PaintedBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.FluidTags;
@@ -10,6 +11,7 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -36,6 +38,10 @@ public class PaintedSlab extends PaintedBlock implements SimpleWaterloggedBlock 
     public PaintedSlab() {
         super();
         this.registerDefaultState(this.defaultBlockState().setValue(TYPE, SlabType.BOTTOM).setValue(WATERLOGGED, Boolean.valueOf(false)));
+    }
+
+    public int getCount(BlockState blockState) {
+        return getShape(blockState, null, null, null).equals(Shapes.block()) ? 2 : 1;
     }
 
     public boolean useShapeForLightOcclusion(BlockState p_56395_) {
@@ -76,6 +82,15 @@ public class PaintedSlab extends PaintedBlock implements SimpleWaterloggedBlock 
         ItemStack itemstack = p_56374_.getItemInHand();
         SlabType slabtype = p_56373_.getValue(TYPE);
         if (slabtype != SlabType.DOUBLE && itemstack.is(this.asItem())) {
+
+            BlockEntity blockEntity = p_56374_.getLevel().getBlockEntity(p_56374_.getClickedPos());
+            if (blockEntity instanceof PaintedBlockEntity painted) {
+                if (itemstack.hasTag() && itemstack.getTag().contains("paintColor")) {
+                    if (painted.getColor() != itemstack.getTag().getInt("paintColor"))
+                        return false;
+                }
+            }
+
             if (p_56374_.replacingClickedOnBlock()) {
                 boolean flag = p_56374_.getClickLocation().y - (double)p_56374_.getClickedPos().getY() > 0.5D;
                 Direction direction = p_56374_.getClickedFace();
