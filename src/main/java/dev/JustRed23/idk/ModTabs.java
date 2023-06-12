@@ -4,7 +4,6 @@ import dev.JustRed23.idk.items.template.CreativeGetterItem;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.Items;
 import net.minecraftforge.event.CreativeModeTabEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -19,7 +18,7 @@ public final class ModTabs {
     static void registerTabs(CreativeModeTabEvent.Register event) {
         MAIN = event.registerCreativeModeTab(new ResourceLocation(IDK.MOD_ID, "main"), builder ->
                 builder.title(Component.translatable("tabs.main.title"))
-                        .icon(Items.DEAD_BUSH::getDefaultInstance)
+                        .icon(ModItems.PAINTBRUSH.get()::getDefaultInstance)
         );
     }
 
