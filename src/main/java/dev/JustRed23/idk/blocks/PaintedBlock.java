@@ -93,15 +93,11 @@ public class PaintedBlock extends BaseEntityBlock {
 
     @Nullable
     public BlockEntity newBlockEntity(@NotNull BlockPos pos, @NotNull BlockState state) {
-        BlockEntityType<PaintedBlockEntity> blockEntityType = ModBlockEntities.PAINTED_BLOCK_ENTITY.get();
-        if (this instanceof PaintedStair)
-            blockEntityType = ModBlockEntities.PAINTED_STAIR_ENTITY.get();
-        else if (this instanceof PaintedSlab)
-            blockEntityType = ModBlockEntities.PAINTED_SLAB_ENTITY.get();
-        else if (this instanceof PaintedGlass)
-            blockEntityType = ModBlockEntities.PAINTED_GLASS_ENTITY.get();
+        return new PaintedBlockEntity(getBlockEntityType(), pos, state);
+    }
 
-        return new PaintedBlockEntity(blockEntityType, pos, state);
+    public BlockEntityType<PaintedBlockEntity> getBlockEntityType() {
+        return ModBlockEntities.PAINTED_BLOCK_ENTITY.get();
     }
 
     public @NotNull RenderShape getRenderShape(@NotNull BlockState state) {

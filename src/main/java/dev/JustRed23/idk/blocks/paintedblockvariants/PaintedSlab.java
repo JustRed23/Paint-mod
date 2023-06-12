@@ -1,5 +1,6 @@
 package dev.JustRed23.idk.blocks.paintedblockvariants;
 
+import dev.JustRed23.idk.ModBlockEntities;
 import dev.JustRed23.idk.blocks.PaintedBlock;
 import dev.JustRed23.idk.blocks.blockentities.PaintedBlockEntity;
 import net.minecraft.core.BlockPos;
@@ -12,6 +13,7 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -38,6 +40,10 @@ public class PaintedSlab extends PaintedBlock implements SimpleWaterloggedBlock 
     public PaintedSlab() {
         super();
         this.registerDefaultState(this.defaultBlockState().setValue(TYPE, SlabType.BOTTOM).setValue(WATERLOGGED, Boolean.valueOf(false)));
+    }
+
+    public BlockEntityType<PaintedBlockEntity> getBlockEntityType() {
+        return ModBlockEntities.PAINTED_SLAB_ENTITY.get();
     }
 
     public int getCount(BlockState blockState) {

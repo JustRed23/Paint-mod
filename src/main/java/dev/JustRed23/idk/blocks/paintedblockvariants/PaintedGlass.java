@@ -1,5 +1,6 @@
 package dev.JustRed23.idk.blocks.paintedblockvariants;
 
+import dev.JustRed23.idk.ModBlockEntities;
 import dev.JustRed23.idk.blocks.PaintedBlock;
 import dev.JustRed23.idk.blocks.blockentities.PaintedBlockEntity;
 import net.minecraft.core.BlockPos;
@@ -10,6 +11,7 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.AbstractGlassBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Material;
@@ -37,6 +39,10 @@ public class PaintedGlass extends PaintedBlock {
                 .isSuffocating(PaintedGlass::no)
                 .isViewBlocking(PaintedGlass::no)
         );
+    }
+
+    public BlockEntityType<PaintedBlockEntity> getBlockEntityType() {
+        return ModBlockEntities.PAINTED_GLASS_ENTITY.get();
     }
 
     public float @Nullable [] getBeaconColorMultiplier(BlockState state, LevelReader level, BlockPos pos, BlockPos beaconPos) {

@@ -1,7 +1,9 @@
 package dev.JustRed23.idk.blocks.paintedblockvariants;
 
+import dev.JustRed23.idk.ModBlockEntities;
 import dev.JustRed23.idk.ModBlocks;
 import dev.JustRed23.idk.blocks.PaintedBlock;
+import dev.JustRed23.idk.blocks.blockentities.PaintedBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.InteractionHand;
@@ -12,6 +14,7 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.*;
@@ -25,7 +28,6 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 import java.util.stream.IntStream;
 
-//Copied from StairBlock
 public class PaintedStair extends PaintedBlock implements SimpleWaterloggedBlock {
 
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
@@ -80,6 +82,10 @@ public class PaintedStair extends PaintedBlock implements SimpleWaterloggedBlock
         super();
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(HALF, Half.BOTTOM).setValue(SHAPE, StairsShape.STRAIGHT).setValue(WATERLOGGED, false));
         this.baseState = ModBlocks.PAINTED_BLOCK.get().defaultBlockState();
+    }
+
+    public BlockEntityType<PaintedBlockEntity> getBlockEntityType() {
+        return ModBlockEntities.PAINTED_STAIR_ENTITY.get();
     }
 
     public boolean useShapeForLightOcclusion(BlockState state) {
