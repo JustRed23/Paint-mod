@@ -1,0 +1,22 @@
+{
+  "result": {
+    "nbt": "{paintColor:16777215}",
+    "item": "idk:painted_glass",
+    "type": "minecraft:item_nbt"
+  },
+  "count": 1,
+  "pattern": [
+    " w ",
+    " g ",
+    "   "
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "w": {
+      "item": "minecraft:white_dye"
+    },
+    "g": {
+      "item": "minecraft:glass"
+    }
+  }
+}
