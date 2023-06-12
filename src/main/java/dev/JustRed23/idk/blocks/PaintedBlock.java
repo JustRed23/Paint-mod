@@ -2,6 +2,7 @@ package dev.JustRed23.idk.blocks;
 
 import dev.JustRed23.idk.ModBlockEntities;
 import dev.JustRed23.idk.blocks.blockentities.PaintedBlockEntity;
+import dev.JustRed23.idk.blocks.paintedblockvariants.PaintedGlass;
 import dev.JustRed23.idk.blocks.paintedblockvariants.PaintedSlab;
 import dev.JustRed23.idk.blocks.paintedblockvariants.PaintedStair;
 import dev.JustRed23.idk.items.PaintedBlockItem;
@@ -33,7 +34,11 @@ import java.util.List;
 public class PaintedBlock extends BaseEntityBlock {
 
     public PaintedBlock() {
-        super(Block.Properties.of(Material.WOOL).noParticlesOnBreak());
+        this(Block.Properties.of(Material.WOOL).noParticlesOnBreak());
+    }
+
+    public PaintedBlock(Block.Properties properties) {
+        super(properties);
     }
 
     public void setPlacedBy(Level level, BlockPos pos, BlockState state, @Nullable LivingEntity entity, ItemStack stack) {
@@ -93,6 +98,8 @@ public class PaintedBlock extends BaseEntityBlock {
             blockEntityType = ModBlockEntities.PAINTED_STAIR_ENTITY.get();
         else if (this instanceof PaintedSlab)
             blockEntityType = ModBlockEntities.PAINTED_SLAB_ENTITY.get();
+        else if (this instanceof PaintedGlass)
+            blockEntityType = ModBlockEntities.PAINTED_GLASS_ENTITY.get();
 
         return new PaintedBlockEntity(blockEntityType, pos, state);
     }
