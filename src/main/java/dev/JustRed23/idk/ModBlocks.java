@@ -50,10 +50,10 @@ public final class ModBlocks {
     }
 
     //BLOCKS
-    public static final RegistryObject<Block> PAINTED_BLOCK = registerBlock("painted_block", PaintedBlock::new, block -> new PaintedBlockItem((PaintedBlock) block), true);
-    public static final RegistryObject<Block> PAINTED_STAIRS = registerBlock("painted_stairs", PaintedStair::new, block -> new PaintedBlockItem((PaintedStair) block), true);
-    public static final RegistryObject<Block> PAINTED_SLAB = registerBlock("painted_slab", PaintedSlab::new, block -> new PaintedBlockItem((PaintedSlab) block), true);
-    public static final RegistryObject<Block> PAINTED_GLASS = registerBlock("painted_glass", PaintedGlass::new, block -> new PaintedBlockItem((PaintedGlass) block), true);
+    public static final RegistryObject<Block> PAINTED_BLOCK = registerBlock("painted_block", PaintedBlock::new, PaintedBlockItem::new, true);
+    public static final RegistryObject<Block> PAINTED_STAIRS = registerBlock("painted_stairs", PaintedStair::new, PaintedBlockItem::new, true);
+    public static final RegistryObject<Block> PAINTED_SLAB = registerBlock("painted_slab", PaintedSlab::new, PaintedBlockItem::new, true);
+    public static final RegistryObject<Block> PAINTED_GLASS = registerBlock("painted_glass", PaintedGlass::new, PaintedBlockItem::new, true);
 
     public static final RegistryObject<Block> PAINT_BUCKET = registerBlock("paint_bucket", PaintBucketBlock::new, block -> new PaintBucketItem((PaintBucketBlock) block));
 }
