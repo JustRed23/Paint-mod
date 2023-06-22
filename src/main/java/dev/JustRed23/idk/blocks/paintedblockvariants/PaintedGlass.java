@@ -3,9 +3,9 @@ package dev.JustRed23.idk.blocks.paintedblockvariants;
 import dev.JustRed23.idk.ModBlockEntities;
 import dev.JustRed23.idk.blocks.PaintedBlock;
 import dev.JustRed23.idk.blocks.blockentities.PaintedBlockEntity;
+import dev.JustRed23.idk.utils.BlockUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.AbstractGlassBlock;
@@ -23,21 +23,14 @@ import org.jetbrains.annotations.Nullable;
 
 public class PaintedGlass extends PaintedBlock {
 
-    private static boolean no(BlockState state, BlockGetter getter, BlockPos pos, EntityType<?> entityType) {
-        return no(state, getter, pos);
-    }
-    public static boolean no(BlockState state, BlockGetter getter, BlockPos pos) {
-        return false;
-    }
-
     public PaintedGlass() {
         super(BlockBehaviour.Properties.of(Material.GLASS).noParticlesOnBreak()
                 .noOcclusion()
                 .sound(SoundType.GLASS)
-                .isValidSpawn(PaintedGlass::no)
-                .isRedstoneConductor(PaintedGlass::no)
-                .isSuffocating(PaintedGlass::no)
-                .isViewBlocking(PaintedGlass::no)
+                .isValidSpawn(BlockUtils::no)
+                .isRedstoneConductor(BlockUtils::no)
+                .isSuffocating(BlockUtils::no)
+                .isViewBlocking(BlockUtils::no)
         );
     }
 

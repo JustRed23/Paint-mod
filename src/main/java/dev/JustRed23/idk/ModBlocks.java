@@ -3,6 +3,7 @@ package dev.JustRed23.idk;
 import dev.JustRed23.idk.blocks.PaintBucketBlock;
 import dev.JustRed23.idk.blocks.PaintedBlock;
 import dev.JustRed23.idk.blocks.paintedblockvariants.PaintedGlass;
+import dev.JustRed23.idk.blocks.paintedblockvariants.PaintedGlassPane;
 import dev.JustRed23.idk.blocks.paintedblockvariants.PaintedSlab;
 import dev.JustRed23.idk.blocks.paintedblockvariants.PaintedStair;
 import dev.JustRed23.idk.items.PaintBucketItem;
@@ -54,6 +55,7 @@ public final class ModBlocks {
     public static final RegistryObject<Block> PAINTED_STAIRS = registerBlock("painted_stairs", PaintedStair::new, PaintedBlockItem::new, true);
     public static final RegistryObject<Block> PAINTED_SLAB = registerBlock("painted_slab", PaintedSlab::new, PaintedBlockItem::new, true);
     public static final RegistryObject<Block> PAINTED_GLASS = registerBlock("painted_glass", PaintedGlass::new, PaintedBlockItem::new, true);
+    public static final RegistryObject<Block> PAINTED_GLASS_PANE = registerBlock("painted_glass_pane", PaintedGlassPane::new, PaintedBlockItem::new, true);
 
     public static final RegistryObject<Block> PAINT_BUCKET = registerBlock("paint_bucket", PaintBucketBlock::new, block -> new PaintBucketItem((PaintBucketBlock) block));
 }

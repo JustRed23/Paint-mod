@@ -1,0 +1,7 @@
+{
+  "parent": "idk:block/template/colored_glass_pane_noside_alt",
+  "textures": {
+    "pane": "minecraft:block/white_stained_glass"
+  },
+  "render_type": "translucent"
+}

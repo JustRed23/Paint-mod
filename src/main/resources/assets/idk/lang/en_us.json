@@ -1,6 +1,7 @@
 {
   "block.idk.painted_block": "Painted Block",
   "block.idk.painted_glass": "Painted Glass",
+  "block.idk.painted_glass_pane": "Painted Glass Pane",
   "block.idk.painted_stairs": "Painted Stairs",
   "block.idk.painted_slab": "Painted Slab",
   "block.idk.paint_bucket": "Paint Bucket",
@@ -10,6 +11,7 @@
   "item.idk.paint_bucket": "Paint Bucket",
   "item.idk.painted_block": "Painted Block",
   "item.idk.painted_glass": "Painted Glass",
+  "item.idk.painted_glass_pane": "Painted Glass Pane",
   "item.idk.painted_stairs": "Painted Stairs",
   "item.idk.painted_slab": "Painted Slab",
 

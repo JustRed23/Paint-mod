@@ -4,6 +4,7 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "mixins.idk.refmap.json",
   "client": [
-    "MixinHalfTransparentBlock"
+    "MixinHalfTransparentBlock",
+    "MixinIronBarsBlock"
   ]
 }
