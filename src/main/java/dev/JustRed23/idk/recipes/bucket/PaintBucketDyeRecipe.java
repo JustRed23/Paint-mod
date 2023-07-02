@@ -1,4 +1,4 @@
-package dev.JustRed23.idk.recipes;
+package dev.JustRed23.idk.recipes.bucket;
 
 import com.google.common.collect.Lists;
 import dev.JustRed23.idk.ModRecipeSerializers;

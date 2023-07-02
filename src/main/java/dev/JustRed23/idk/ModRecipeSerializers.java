@@ -1,7 +1,7 @@
 package dev.JustRed23.idk;
 
-import dev.JustRed23.idk.recipes.PaintBucketDyeRecipe;
-import dev.JustRed23.idk.recipes.PaintBucketEyeDropperRecipe;
+import dev.JustRed23.idk.recipes.bucket.PaintBucketDyeRecipe;
+import dev.JustRed23.idk.recipes.bucket.PaintBucketEyeDropperRecipe;
 import dev.JustRed23.idk.recipes.PaintedSlabRecipe;
 import dev.JustRed23.idk.recipes.PaintedStairsRecipe;
 import dev.JustRed23.idk.recipes.glass.PaintedGlassPaneRecipe;
