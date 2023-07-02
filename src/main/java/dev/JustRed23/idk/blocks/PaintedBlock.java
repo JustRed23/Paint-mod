@@ -2,9 +2,6 @@ package dev.JustRed23.idk.blocks;
 
 import dev.JustRed23.idk.ModBlockEntities;
 import dev.JustRed23.idk.blocks.blockentities.PaintedBlockEntity;
-import dev.JustRed23.idk.blocks.paintedblockvariants.PaintedGlass;
-import dev.JustRed23.idk.blocks.paintedblockvariants.PaintedSlab;
-import dev.JustRed23.idk.blocks.paintedblockvariants.PaintedStair;
 import dev.JustRed23.idk.items.PaintedBlockItem;
 import dev.JustRed23.idk.particle.paint.PaintParticleData;
 import net.minecraft.core.BlockPos;

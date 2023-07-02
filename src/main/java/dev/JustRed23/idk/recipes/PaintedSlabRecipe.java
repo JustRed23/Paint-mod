@@ -13,8 +13,8 @@ import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
-import static dev.JustRed23.idk.utils.RecipeUtils.allColorsMatch;
 import static dev.JustRed23.idk.utils.RecipeUtils.allAir;
+import static dev.JustRed23.idk.utils.RecipeUtils.allColorsMatch;
 
 public class PaintedSlabRecipe extends CustomRecipe {
 

@@ -1,6 +1,5 @@
 package dev.JustRed23.idk.blocks.blockentities;
 
-import dev.JustRed23.idk.ModBlockEntities;
 import dev.JustRed23.idk.blocks.blockentities.template.ColoredBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
