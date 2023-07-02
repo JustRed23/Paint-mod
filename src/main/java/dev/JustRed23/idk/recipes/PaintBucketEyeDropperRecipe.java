@@ -21,6 +21,9 @@ public class PaintBucketEyeDropperRecipe extends CustomRecipe {
     }
 
     public boolean matches(@NotNull CraftingContainer container, @NotNull Level level) {
+        if (!canCraftInDimensions(container.getWidth(), container.getHeight()))
+            return false;
+
         ItemStack bucket = ItemStack.EMPTY;
         ItemStack eyeDropper = ItemStack.EMPTY;
 

@@ -23,6 +23,9 @@ public class PaintedSlabRecipe extends CustomRecipe {
     }
 
     public boolean matches(@NotNull CraftingContainer container, @NotNull Level level) {
+        if (!canCraftInDimensions(container.getWidth(), container.getHeight()))
+            return false;
+
         ItemStack slot1 = container.getItem(0);
         ItemStack slot2 = container.getItem(1);
         ItemStack slot3 = container.getItem(2);
@@ -45,10 +48,11 @@ public class PaintedSlabRecipe extends CustomRecipe {
         return false;
     }
 
-    private boolean isSlab(ItemStack item1, ItemStack item2, ItemStack item3) {
-        if (item1.getItem() instanceof PaintedBlockItem && item2.getItem() instanceof PaintedBlockItem && item3.getItem() instanceof PaintedBlockItem)
-            return true;
-        return false;
+    private boolean isSlab(ItemStack... stacks) {
+        for (ItemStack stack : stacks)
+            if (stack.isEmpty() || !(stack.getItem() instanceof PaintedBlockItem) || !stack.is(ModItems.get("painted_block").get()))
+                return false;
+        return true;
     }
 
     public @NotNull ItemStack assemble(@NotNull CraftingContainer container, @NotNull RegistryAccess access) {

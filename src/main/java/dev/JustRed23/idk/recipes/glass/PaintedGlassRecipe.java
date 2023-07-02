@@ -1,14 +1,15 @@
-package dev.JustRed23.idk.recipes;
+package dev.JustRed23.idk.recipes.glass;
 
 import com.google.common.collect.Lists;
+import dev.JustRed23.idk.ModItems;
 import dev.JustRed23.idk.ModRecipeSerializers;
-import dev.JustRed23.idk.items.PaintBucketItem;
 import dev.JustRed23.idk.items.PaintedBlockItem;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.inventory.CraftingContainer;
 import net.minecraft.world.item.DyeItem;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.CraftingBookCategory;
 import net.minecraft.world.item.crafting.CustomRecipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
@@ -17,9 +18,9 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-public class PaintBucketDyeRecipe extends CustomRecipe {
+public class PaintedGlassRecipe extends CustomRecipe {
 
-    public PaintBucketDyeRecipe(ResourceLocation loc, CraftingBookCategory category) {
+    public PaintedGlassRecipe(ResourceLocation loc, CraftingBookCategory category) {
         super(loc, category);
     }
 
@@ -27,17 +28,17 @@ public class PaintBucketDyeRecipe extends CustomRecipe {
         if (!canCraftInDimensions(container.getWidth(), container.getHeight()))
             return false;
 
-        ItemStack bucket = ItemStack.EMPTY;
+        ItemStack glass = ItemStack.EMPTY;
         List<ItemStack> dyes = Lists.newArrayList();
 
         for (int i = 0; i < container.getContainerSize(); ++i) {
             ItemStack itemstack = container.getItem(i);
             if (!itemstack.isEmpty()) {
-                if (itemstack.getItem() instanceof PaintBucketItem) {
-                    if (!bucket.isEmpty())
+                if (itemstack.is(Items.GLASS)) {
+                    if (!glass.isEmpty())
                         return false;
 
-                    bucket = itemstack;
+                    glass = itemstack;
                 } else {
                     if (!(itemstack.getItem() instanceof DyeItem))
                         return false;
@@ -47,21 +48,21 @@ public class PaintBucketDyeRecipe extends CustomRecipe {
             }
         }
 
-        return !bucket.isEmpty() && !dyes.isEmpty();
+        return !glass.isEmpty() && !dyes.isEmpty();
     }
 
     public @NotNull ItemStack assemble(@NotNull CraftingContainer container, @NotNull RegistryAccess access) {
-        ItemStack bucket = ItemStack.EMPTY;
+        ItemStack glass = ItemStack.EMPTY;
         List<ItemStack> dyes = Lists.newArrayList();
 
         for (int i = 0; i < container.getContainerSize(); ++i) {
             ItemStack itemstack = container.getItem(i);
             if (!itemstack.isEmpty()) {
-                if (itemstack.getItem() instanceof PaintBucketItem) {
-                    if (!bucket.isEmpty())
+                if (itemstack.is(Items.GLASS)) {
+                    if (!glass.isEmpty())
                         return ItemStack.EMPTY;
 
-                    bucket = itemstack;
+                    glass = itemstack;
                 } else {
                     if (!(itemstack.getItem() instanceof DyeItem))
                         return ItemStack.EMPTY;
@@ -71,9 +72,9 @@ public class PaintBucketDyeRecipe extends CustomRecipe {
             }
         }
 
-        if (!bucket.isEmpty() && !dyes.isEmpty())
-            if (((PaintBucketItem) bucket.getItem()).canUse(bucket))
-                return PaintedBlockItem.dyeItem(bucket, dyes);
+
+        if (!glass.isEmpty() && !dyes.isEmpty())
+            return PaintedBlockItem.dyeItem(ModItems.get("painted_glass").get().getDefaultInstance(), dyes);
 
         return ItemStack.EMPTY;
     }
@@ -83,6 +84,6 @@ public class PaintBucketDyeRecipe extends CustomRecipe {
     }
 
     public @NotNull RecipeSerializer<?> getSerializer() {
-        return ModRecipeSerializers.PAINT_BUCKET_DYE.get();
+        return ModRecipeSerializers.PAINTED_GLASS.get();
     }
 }

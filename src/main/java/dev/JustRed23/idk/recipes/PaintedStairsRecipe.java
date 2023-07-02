@@ -23,6 +23,9 @@ public class PaintedStairsRecipe extends CustomRecipe {
     }
 
     public boolean matches(@NotNull CraftingContainer container, @NotNull Level level) {
+        if (!canCraftInDimensions(container.getWidth(), container.getHeight()))
+            return false;
+
         final ItemStack slot1 = container.getItem(0);
         final ItemStack slot2 = container.getItem(1);
         final ItemStack slot3 = container.getItem(2);
@@ -41,7 +44,7 @@ public class PaintedStairsRecipe extends CustomRecipe {
     }
 
     private boolean isPaintedBlock(ItemStack stack) {
-        return stack.getItem() instanceof PaintedBlockItem;
+        return stack.getItem() instanceof PaintedBlockItem && stack.is(ModItems.get("painted_block").get());
     }
 
     public @NotNull ItemStack assemble(@NotNull CraftingContainer container, @NotNull RegistryAccess access) {

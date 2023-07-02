@@ -5,9 +5,7 @@ import dev.JustRed23.idk.items.template.CreativeGetterItem;
 import dev.JustRed23.idk.items.template.PaintControlsBlock;
 import dev.JustRed23.idk.utils.ColorUtils;
 import net.minecraft.ChatFormatting;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.item.DyeItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
@@ -24,29 +22,6 @@ public class PaintBucketItem extends PaintControlsBlock implements CreativeGette
 
     public PaintBucketItem(PaintBucketBlock block, int maxUsages, int initialUsages) {
         super(block, maxUsages, initialUsages);
-    }
-
-    public static ItemStack dyeBucket(ItemStack bucket, List<ItemStack> dyes) {
-        if (bucket.getItem() instanceof PaintBucketItem) {
-            ItemStack newBucket = bucket.copy();
-            CompoundTag tag = newBucket.getOrCreateTag();
-            int uses = tag.getInt("uses");
-            int color = tag.getInt("paintColor");
-
-            if (uses > 0) {
-                for (ItemStack dye : dyes) {
-                    if (dye.getItem() instanceof DyeItem dyeItem) {
-                        int dyeColor = dyeItem.getDyeColor().getMaterialColor().col;
-                        if (dyeColor != color)
-                            color = ColorUtils.mixColors(color, dyeColor);
-                    }
-                }
-            }
-
-            tag.putInt("paintColor", color);
-            return newBucket;
-        }
-        return ItemStack.EMPTY;
     }
 
     public @NotNull ItemStack getCreativeInstance() {
