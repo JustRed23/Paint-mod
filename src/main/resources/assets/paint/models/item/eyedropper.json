@@ -1,0 +1,15 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "paint:item/eyedropper/base",
+    "layer1": "paint:item/eyedropper/overlay"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "paint:empty": 1
+      },
+      "model": "paint:item/empty_eyedropper"
+    }
+  ]
+}

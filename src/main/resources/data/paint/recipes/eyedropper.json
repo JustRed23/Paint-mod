@@ -1,0 +1,20 @@
+{
+  "result": {
+    "item": "paint:eyedropper"
+  },
+  "count": 1,
+  "pattern": [
+    "  b",
+    " g ",
+    "g  "
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "b": {
+      "item": "minecraft:black_wool"
+    },
+    "g": {
+      "item": "minecraft:glass"
+    }
+  }
+}

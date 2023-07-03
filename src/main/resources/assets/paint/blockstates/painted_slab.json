@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "paint:block/painted_slab/painted_slab_bottom"
+    },
+    "type=double": {
+      "model": "paint:block/painted_block"
+    },
+    "type=top": {
+      "model": "paint:block/painted_slab/painted_slab_top"
+    }
+  }
+}

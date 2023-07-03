@@ -1,0 +1,6 @@
+{
+  "parent": "paint:block/template/colored_stairs_inner",
+  "textures": {
+    "all": "paint:block/painted_block"
+  }
+}

@@ -1,7 +1,0 @@
-{
-  "parent": "idk:block/template/colored_block",
-  "textures": {
-    "all": "minecraft:block/white_stained_glass"
-  },
-  "render_type": "translucent"
-}

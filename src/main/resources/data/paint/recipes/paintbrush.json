@@ -1,0 +1,22 @@
+{
+  "result": {
+    "nbt": "{uses:0,maxUses:10}",
+    "item": "paint:paintbrush",
+    "type": "minecraft:item_nbt"
+  },
+  "count": 1,
+  "pattern": [
+    "  f",
+    " s ",
+    "s  "
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "f": {
+      "item": "minecraft:feather"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    }
+  }
+}

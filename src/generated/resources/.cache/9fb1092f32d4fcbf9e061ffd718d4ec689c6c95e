@@ -1,7 +1,7 @@
-// 1.19.4	2023-07-02T17:42:27.5838779	Recipes
-b91f1a37d155664a524ec87f4cdcf90952da4db4 data/idk/recipes/painted_glass.json
-2af3d97d301555947114b796634fe81715451ff6 data/idk/recipes/painted_glass_pane.json
-d9aeb21d63d60c5fe0106e398b19c7ea2071f1cd data/idk/recipes/painted_slab.json
-99e93f4d5bb5f53fb6e0fea35b1e1b2515c6b71c data/idk/recipes/painted_stairs.json
-5aa98ca46efdf90d714dcecff2fdca46dd98c3f8 data/idk/recipes/paint_bucket_dye.json
-3e933cd79634f8ce753b3b9b4ad04ebd591a5de6 data/idk/recipes/paint_bucket_eyedropper.json
+// 1.19.4	2023-07-02T18:45:03.2672915	Recipes
+7d12b9844e1ed54acec913e3e103311755a391b7 data/paint/recipes/painted_glass.json
+24736ead150be60b98309600a2378ce2e1cfc84b data/paint/recipes/painted_glass_pane.json
+f6d0607c2c817ff5c89de0074ba4907a7b59493c data/paint/recipes/painted_slab.json
+e8854c93e034fb07c4d5fcd47121f2d4769fdfb4 data/paint/recipes/painted_stairs.json
+a2dac6533a83bd116061a9deaac5a26f838c58af data/paint/recipes/paint_bucket_dye.json
+38d02509b0d1e934f30046ba96304a50201eb844 data/paint/recipes/paint_bucket_eyedropper.json

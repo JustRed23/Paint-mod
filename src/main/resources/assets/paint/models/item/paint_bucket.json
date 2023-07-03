@@ -1,0 +1,15 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "paint:item/paint_bucket/base",
+    "layer1": "paint:item/paint_bucket/overlay"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "paint:empty": 1
+      },
+      "model": "paint:item/empty_paint_bucket"
+    }
+  ]
+}

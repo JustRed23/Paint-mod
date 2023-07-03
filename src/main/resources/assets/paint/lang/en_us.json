@@ -1,0 +1,22 @@
+{
+  "block.paint.painted_block": "Painted Block",
+  "block.paint.painted_glass": "Painted Glass",
+  "block.paint.painted_glass_pane": "Painted Glass Pane",
+  "block.paint.painted_stairs": "Painted Stairs",
+  "block.paint.painted_slab": "Painted Slab",
+  "block.paint.paint_bucket": "Paint Bucket",
+
+  "item.paint.eyedropper": "Eye Dropper",
+  "item.paint.paintbrush": "Paintbrush",
+  "item.paint.paint_bucket": "Paint Bucket",
+  "item.paint.painted_block": "Painted Block",
+  "item.paint.painted_glass": "Painted Glass",
+  "item.paint.painted_glass_pane": "Painted Glass Pane",
+  "item.paint.painted_stairs": "Painted Stairs",
+  "item.paint.painted_slab": "Painted Slab",
+
+  "tooltips.paint.color": "Current color: {0}",
+  "tooltips.paint.uses": "Uses left: {0}/{1}",
+
+  "tabs.main.title": "Main"
+}

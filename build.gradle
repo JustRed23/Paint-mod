@@ -6,8 +6,8 @@ plugins {
 }
 
 version = '1.0'
-group = 'dev.JustRed23.idk' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = 'idk'
+group = 'dev.JustRed23.paint' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = 'paint'
 
 // Mojang ships Java 17 to end users in 1.18+, so your mod should target Java 17.
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
@@ -50,10 +50,10 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
-            property 'forge.enabledGameTestNamespaces', 'idk'
+            property 'forge.enabledGameTestNamespaces', 'paint'
 
             mods {
-                idk {
+                paint {
                     source sourceSets.main
                 }
             }
@@ -66,10 +66,10 @@ minecraft {
 
             property 'forge.logging.console.level', 'debug'
 
-            property 'forge.enabledGameTestNamespaces', 'idk'
+            property 'forge.enabledGameTestNamespaces', 'paint'
 
             mods {
-                idk {
+                paint {
                     source sourceSets.main
                 }
             }
@@ -85,10 +85,10 @@ minecraft {
 
             property 'forge.logging.console.level', 'debug'
 
-            property 'forge.enabledGameTestNamespaces', 'idk'
+            property 'forge.enabledGameTestNamespaces', 'paint'
 
             mods {
-                idk {
+                paint {
                     source sourceSets.main
                 }
             }
@@ -102,10 +102,10 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             // Specify the modid for data generation, where to output the resulting resource, and where to look for existing resources.
-            args '--mod', 'idk', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+            args '--mod', 'paint', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
 
             mods {
-                idk {
+                paint {
                     source sourceSets.main
                 }
             }
@@ -129,7 +129,7 @@ dependencies {
 jar {
     manifest {
         attributes([
-                "Specification-Title"     : "idk",
+                "Specification-Title"     : "paint",
                 "Specification-Vendor"    : "JustRed23",
                 "Specification-Version"   : "1", // We are version 1 of ourselves
                 "Implementation-Title"    : project.name,

@@ -1,8 +1,0 @@
-{
-  "parent": "idk:block/template/colored_glass_pane_side_alt",
-  "textures": {
-    "edge": "minecraft:block/white_stained_glass_pane_top",
-    "pane": "minecraft:block/white_stained_glass"
-  },
-  "render_type": "translucent"
-}

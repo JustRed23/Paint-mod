@@ -1,0 +1,22 @@
+{
+  "result": {
+    "nbt": "{paintColor:16777215}",
+    "item": "paint:painted_block",
+    "type": "minecraft:item_nbt"
+  },
+  "count": 1,
+  "pattern": [
+    " c ",
+    "cwc",
+    " c "
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "c": {
+      "item": "minecraft:clay_ball"
+    },
+    "w": {
+      "item": "minecraft:white_wool"
+    }
+  }
+}
