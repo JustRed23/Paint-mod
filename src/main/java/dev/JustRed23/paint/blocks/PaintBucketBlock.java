@@ -114,7 +114,7 @@ public class PaintBucketBlock extends BaseEntityBlock {
         return this.defaultBlockState()
                 .setValue(FACING, context.getHorizontalDirection().getOpposite())
                 .setValue(EMPTY, uses == 0)
-                .setValue(LEVEL, uses / 10);
+                .setValue(LEVEL, uses == 0 ? 0 : uses / 10);
     }
 
     public @NotNull BlockState rotate(BlockState state, Rotation rotation) {

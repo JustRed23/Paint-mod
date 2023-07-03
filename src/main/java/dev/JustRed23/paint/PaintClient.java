@@ -5,6 +5,8 @@ import dev.JustRed23.paint.items.EyeDropperItem;
 import dev.JustRed23.paint.items.PaintBucketItem;
 import dev.JustRed23.paint.items.PaintbrushItem;
 import dev.JustRed23.paint.particle.PaintParticle;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
@@ -32,6 +34,9 @@ public class PaintClient {
 
         final PaintBucketItem paintBucket = (PaintBucketItem) ModItems.getBlockItem("paint_bucket").get();
         ItemProperties.register(paintBucket, EMPTY, (stack, world, entity, seed) -> paintBucket.canUse(stack) ? 0.0F : 1.0F);
+
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.PAINTED_GLASS.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.PAINTED_GLASS_PANE.get(), RenderType.translucent());
     }
 
     @SubscribeEvent

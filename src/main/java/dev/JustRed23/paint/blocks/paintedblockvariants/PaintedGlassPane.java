@@ -53,10 +53,6 @@ public class PaintedGlassPane extends PaintedBlock {
                 .noOcclusion()
                 .strength(0.3F)
                 .sound(SoundType.GLASS)
-                .isValidSpawn(BlockUtils::no)
-                .isRedstoneConductor(BlockUtils::no)
-                .isSuffocating(BlockUtils::no)
-                .isViewBlocking(BlockUtils::no)
         );
 
         this.shape = this.makeShapes();

@@ -2,6 +2,5 @@
   "parent": "paint:block/template/colored_glass_pane_noside",
   "textures": {
     "pane": "minecraft:block/white_stained_glass"
-  },
-  "render_type": "translucent"
+  }
 }
