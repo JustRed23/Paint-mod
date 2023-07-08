@@ -1,9 +1,9 @@
 package dev.JustRed23.paint;
 
-import dev.JustRed23.paint.recipes.bucket.PaintBucketDyeRecipe;
-import dev.JustRed23.paint.recipes.bucket.PaintBucketEyeDropperRecipe;
 import dev.JustRed23.paint.recipes.PaintedSlabRecipe;
 import dev.JustRed23.paint.recipes.PaintedStairsRecipe;
+import dev.JustRed23.paint.recipes.bucket.PaintBucketDyeRecipe;
+import dev.JustRed23.paint.recipes.bucket.PaintBucketEyeDropperRecipe;
 import dev.JustRed23.paint.recipes.glass.PaintedGlassPaneRecipe;
 import dev.JustRed23.paint.recipes.glass.PaintedGlassRecipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;

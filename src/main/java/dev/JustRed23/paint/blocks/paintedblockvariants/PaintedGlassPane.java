@@ -3,7 +3,6 @@ package dev.JustRed23.paint.blocks.paintedblockvariants;
 import dev.JustRed23.paint.ModBlockEntities;
 import dev.JustRed23.paint.blocks.PaintedBlock;
 import dev.JustRed23.paint.blocks.blockentities.PaintedBlockEntity;
-import dev.JustRed23.paint.utils.BlockUtils;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import net.minecraft.Util;
