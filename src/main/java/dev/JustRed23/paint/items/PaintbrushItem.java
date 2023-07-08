@@ -1,6 +1,7 @@
 package dev.JustRed23.paint.items;
 
 import dev.JustRed23.paint.blocks.PaintBucketBlock;
+import dev.JustRed23.paint.blocks.PaintedBed;
 import dev.JustRed23.paint.blocks.PaintedBlock;
 import dev.JustRed23.paint.blocks.blockentities.PaintBucketBlockEntity;
 import dev.JustRed23.paint.blocks.blockentities.PaintedBlockEntity;
@@ -9,6 +10,7 @@ import dev.JustRed23.paint.items.template.PaintControlsItem;
 import dev.JustRed23.paint.utils.ColorUtils;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundSource;
@@ -21,6 +23,7 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BedPart;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
 import org.jetbrains.annotations.NotNull;
@@ -103,6 +106,19 @@ public class PaintbrushItem extends PaintControlsItem implements CreativeGetterI
                 int color = getColor(stack);
                 if (canUse(stack) && blockEntity != null && blockEntity.getColor() != color) {
                     blockEntity.setColor(color);
+                    level.playLocalSound(pos, blockEntity.getPaintSound(), SoundSource.BLOCKS, 0.2F, 1.0F, false);
+                    deplete(stack);
+                }
+            } else if (state.getBlock() instanceof PaintedBed) {
+                PaintedBlockEntity blockEntity = (PaintedBlockEntity) level.getBlockEntity(pos);
+                final Direction value = state.getValue(PaintedBed.FACING);
+                PaintedBlockEntity facing = (PaintedBlockEntity) level.getBlockEntity(pos.relative(state.getValue(PaintedBed.PART) == BedPart.HEAD ? value.getOpposite() : value));
+                int color = getColor(stack);
+                System.out.println(blockEntity);
+                System.out.println(facing);
+                if (canUse(stack) && blockEntity != null && facing != null && blockEntity.getColor() != color) {
+                    blockEntity.setColor(color);
+                    facing.setColor(color);
                     level.playLocalSound(pos, blockEntity.getPaintSound(), SoundSource.BLOCKS, 0.2F, 1.0F, false);
                     deplete(stack);
                 }

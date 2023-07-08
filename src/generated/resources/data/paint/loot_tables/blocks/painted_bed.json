@@ -1,0 +1,40 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "paint:painted_bed",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "part": "head"
+          }
+        },
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:copy_nbt",
+              "ops": [
+                {
+                  "op": "replace",
+                  "source": "color",
+                  "target": "paintColor"
+                }
+              ],
+              "source": "block_entity"
+            }
+          ],
+          "name": "paint:painted_bed"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ]
+}

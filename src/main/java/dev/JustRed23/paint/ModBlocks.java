@@ -1,6 +1,7 @@
 package dev.JustRed23.paint;
 
 import dev.JustRed23.paint.blocks.PaintBucketBlock;
+import dev.JustRed23.paint.blocks.PaintedBed;
 import dev.JustRed23.paint.blocks.PaintedBlock;
 import dev.JustRed23.paint.blocks.paintedblockvariants.PaintedGlass;
 import dev.JustRed23.paint.blocks.paintedblockvariants.PaintedGlassPane;
@@ -46,6 +47,10 @@ public final class ModBlocks {
         return registryObject;
     }
 
+    public static List<Block> getAll() {
+        return BLOCKS.getEntries().stream().map(RegistryObject::get).toList();
+    }
+
     public static List<RegistryObject<Block>> getPaintedBlocks() {
         return PAINTED_BLOCKS;
     }
@@ -56,6 +61,7 @@ public final class ModBlocks {
     public static final RegistryObject<Block> PAINTED_SLAB = registerBlock("painted_slab", PaintedSlab::new, PaintedBlockItem::new, true);
     public static final RegistryObject<Block> PAINTED_GLASS = registerBlock("painted_glass", PaintedGlass::new, PaintedBlockItem::new, true);
     public static final RegistryObject<Block> PAINTED_GLASS_PANE = registerBlock("painted_glass_pane", PaintedGlassPane::new, PaintedBlockItem::new, true);
+    public static final RegistryObject<Block> PAINTED_BED = registerBlock("painted_bed", PaintedBed::new, PaintedBlockItem::new, true);
 
     public static final RegistryObject<Block> PAINT_BUCKET = registerBlock("paint_bucket", PaintBucketBlock::new, block -> new PaintBucketItem((PaintBucketBlock) block));
 }
