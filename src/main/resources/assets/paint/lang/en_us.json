@@ -1,4 +1,5 @@
 {
+  "block.paint.painted_bed": "Painted Bed",
   "block.paint.painted_block": "Painted Block",
   "block.paint.painted_glass": "Painted Glass",
   "block.paint.painted_glass_pane": "Painted Glass Pane",
@@ -9,6 +10,7 @@
   "item.paint.eyedropper": "Eye Dropper",
   "item.paint.paintbrush": "Paintbrush",
   "item.paint.paint_bucket": "Paint Bucket",
+  "item.paint.painted_bed": "Painted Bed",
   "item.paint.painted_block": "Painted Block",
   "item.paint.painted_glass": "Painted Glass",
   "item.paint.painted_glass_pane": "Painted Glass Pane",
