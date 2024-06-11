@@ -3,18 +3,16 @@ package dev.JustRed23.paint.blocks.paintedblockvariants;
 import dev.JustRed23.paint.ModBlockEntities;
 import dev.JustRed23.paint.blocks.PaintedBlock;
 import dev.JustRed23.paint.blocks.blockentities.PaintedBlockEntity;
-import dev.JustRed23.paint.utils.BlockUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.AbstractGlassBlock;
-import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -24,14 +22,7 @@ import org.jetbrains.annotations.Nullable;
 public class PaintedGlass extends PaintedBlock {
 
     public PaintedGlass() {
-        super(BlockBehaviour.Properties.of(Material.GLASS).noParticlesOnBreak()
-                .noOcclusion()
-                .sound(SoundType.GLASS)
-                .isValidSpawn(BlockUtils::no)
-                .isRedstoneConductor(BlockUtils::no)
-                .isSuffocating(BlockUtils::no)
-                .isViewBlocking(BlockUtils::no)
-        );
+        super(BlockBehaviour.Properties.copy(Blocks.GLASS).noParticlesOnBreak());
     }
 
     public BlockEntityType<PaintedBlockEntity> getBlockEntityType() {

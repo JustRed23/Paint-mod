@@ -1,30 +1,33 @@
 package dev.JustRed23.paint;
 
 import dev.JustRed23.paint.items.template.CreativeGetterItem;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
-import net.minecraftforge.event.CreativeModeTabEvent;
+import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 
 @Mod.EventBusSubscriber(modid = Paint.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public final class ModTabs {
 
-    public static CreativeModeTab MAIN;
+    private static final DeferredRegister<CreativeModeTab> CREATIVE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, Paint.MOD_ID);
 
-    @SubscribeEvent
-    static void registerTabs(CreativeModeTabEvent.Register event) {
-        MAIN = event.registerCreativeModeTab(new ResourceLocation(Paint.MOD_ID, "main"), builder ->
-                builder.title(Component.translatable("tabs.main.title"))
-                        .icon(ModItems.PAINTBRUSH.get()::getDefaultInstance)
-        );
+    static void register(IEventBus bus) {
+        CREATIVE_TABS.register(bus);
     }
 
+    public static RegistryObject<CreativeModeTab> MAIN = CREATIVE_TABS.register("main", () -> CreativeModeTab.builder()
+            .title(Component.translatable("tabs.main.title"))
+            .icon(ModItems.PAINTBRUSH.get()::getDefaultInstance)
+            .build());
+
     @SubscribeEvent
-    static void fillTabs(CreativeModeTabEvent.BuildContents event) {
-        if (event.getTab() == MAIN) {
+    static void fillTabs(BuildCreativeModeTabContentsEvent event) {
+        if (event.getTab() == MAIN.get()) {
             ModItems.getAll()
                     .stream()
                     .map(RegistryObject::get)

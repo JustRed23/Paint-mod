@@ -23,7 +23,6 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
-import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
@@ -48,11 +47,7 @@ public class PaintedGlassPane extends PaintedBlock {
     private final Object2IntMap<BlockState> stateToIndex = new Object2IntOpenHashMap<>();
 
     public PaintedGlassPane() {
-        super(BlockBehaviour.Properties.of(Material.GLASS).noParticlesOnBreak()
-                .noOcclusion()
-                .strength(0.3F)
-                .sound(SoundType.GLASS)
-        );
+        super(BlockBehaviour.Properties.copy(Blocks.GLASS_PANE).noParticlesOnBreak());
 
         this.shape = this.makeShapes();
 

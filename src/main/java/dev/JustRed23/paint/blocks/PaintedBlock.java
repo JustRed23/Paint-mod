@@ -15,12 +15,12 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.world.level.storage.loot.LootContext;
+import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.HitResult;
 import org.jetbrains.annotations.NotNull;
@@ -31,7 +31,7 @@ import java.util.List;
 public class PaintedBlock extends BaseEntityBlock {
 
     public PaintedBlock() {
-        this(Block.Properties.of(Material.WOOL).noParticlesOnBreak());
+        this(Block.Properties.copy(Blocks.WHITE_TERRACOTTA).noParticlesOnBreak());
     }
 
     public PaintedBlock(Block.Properties properties) {
@@ -50,7 +50,7 @@ public class PaintedBlock extends BaseEntityBlock {
         return 1;
     }
 
-    public List<ItemStack> getDrops(BlockState state, LootContext.Builder builder) {
+    public @NotNull List<ItemStack> getDrops(@NotNull BlockState state, LootParams.Builder builder) {
         ItemStack stack = new ItemStack(this, getCount(state));
         PaintedBlockEntity blockEntity = ((PaintedBlockEntity) builder.getOptionalParameter(LootContextParams.BLOCK_ENTITY));
         if (blockEntity != null)

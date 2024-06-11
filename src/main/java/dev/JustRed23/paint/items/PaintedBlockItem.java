@@ -44,7 +44,7 @@ public class PaintedBlockItem extends BlockItem implements CreativeGetterItem {
 
         for (ItemStack dye : dyes) {
             if (dye.getItem() instanceof DyeItem dyeItem) {
-                int dyeColor = dyeItem.getDyeColor().getMaterialColor().col;
+                int dyeColor = dyeItem.getDyeColor().getMapColor().col;
                 if (dyeColor != color)
                     color = ColorUtils.mixColors(color, dyeColor);
             }

@@ -18,9 +18,8 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.world.level.material.MaterialColor;
-import net.minecraft.world.level.storage.loot.LootContext;
+import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.shapes.BooleanOp;
@@ -60,7 +59,7 @@ public class PaintBucketBlock extends BaseEntityBlock {
     ).reduce((v1, v2) -> Shapes.join(v1, v2, BooleanOp.OR)).get();
 
     public PaintBucketBlock() {
-        super(BlockBehaviour.Properties.of(Material.DECORATED_POT, MaterialColor.COLOR_GRAY));
+        super(BlockBehaviour.Properties.copy(Blocks.DECORATED_POT).mapColor(MapColor.COLOR_GRAY));
     }
 
     public void setPlacedBy(@NotNull Level level, @NotNull BlockPos pos, @NotNull BlockState state, @Nullable LivingEntity entity, ItemStack stack) {
@@ -76,7 +75,7 @@ public class PaintBucketBlock extends BaseEntityBlock {
         }
     }
 
-    public @NotNull List<ItemStack> getDrops(@NotNull BlockState state, LootContext.Builder builder) {
+    public @NotNull List<ItemStack> getDrops(@NotNull BlockState state, LootParams.Builder builder) {
         ItemStack stack = new ItemStack(this);
         PaintBucketBlockEntity blockEntity = ((PaintBucketBlockEntity) builder.getOptionalParameter(LootContextParams.BLOCK_ENTITY));
         if (blockEntity != null) {

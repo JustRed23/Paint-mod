@@ -23,6 +23,7 @@ public class Paint {
         ModParticles.register(bus);
         ModRecipeSerializers.register(bus);
         ModSoundEvents.register(bus);
+        ModTabs.register(bus);
 
         bus.addListener(this::setup);
         MinecraftForge.EVENT_BUS.register(this);
