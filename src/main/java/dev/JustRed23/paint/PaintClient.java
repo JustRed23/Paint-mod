@@ -68,8 +68,7 @@ public class PaintClient {
     private static void registerColored(RegisterColorHandlersEvent.Block event, Block block) {
         event.register((state, world, pos, tintIndex) -> {
             if (world != null && pos != null && tintIndex == 0) {
-                ColoredBlockEntity blockEntity = (ColoredBlockEntity) world.getBlockEntity(pos);
-                if (blockEntity != null)
+                if (world.getBlockEntity(pos) instanceof ColoredBlockEntity blockEntity)
                     return blockEntity.getColor();
             }
             return -1;
