@@ -114,8 +114,6 @@ public class PaintbrushItem extends PaintControlsItem implements CreativeGetterI
                 final Direction value = state.getValue(PaintedBed.FACING);
                 PaintedBlockEntity facing = (PaintedBlockEntity) level.getBlockEntity(pos.relative(state.getValue(PaintedBed.PART) == BedPart.HEAD ? value.getOpposite() : value));
                 int color = getColor(stack);
-                System.out.println(blockEntity);
-                System.out.println(facing);
                 if (canUse(stack) && blockEntity != null && facing != null && blockEntity.getColor() != color) {
                     blockEntity.setColor(color);
                     facing.setColor(color);
